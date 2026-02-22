@@ -274,17 +274,6 @@ export default function Certificates() {
             ))}
           </div>
         </div>
-
-        <div className="text-center mt-12">
-          <Button
-            className="bg-gradient-to-r from-blue-600 to-gray-800 hover:from-blue-700 hover:to-gray-900 text-white px-6 py-3 h-auto text-sm rounded-full group cursor-pointer"
-            onClick={handleDownloadAll}
-          >
-            <FileText className="mr-2 h-3 w-3" />
-            Download All Certificates
-            <Download className="ml-2 h-3 w-3 group-hover:translate-y-0.5 transition-transform" />
-          </Button>
-        </div>
       </div>
     </section>
   );
