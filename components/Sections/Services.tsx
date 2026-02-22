@@ -5,9 +5,6 @@ import {
   Code2,
   Palette,
   Smartphone,
-  Globe,
-  Gauge,
-  Shield,
   ArrowRight,
   Rocket,
 } from "lucide-react";
@@ -40,16 +37,14 @@ export default function Services() {
   return (
     <section
       id="services"
-      className="relative py-12 sm:py-16 overflow-hidden bg-gradient-to-b from-white to-blue-50 dark:from-gray-900 dark:to-gray-800 items-center"
+      className="relative py-12 sm:py-16 overflow-hidden bg-gradient-to-b from-white to-blue-50 dark:from-gray-900 dark:to-gray-800"
     >
-      {/* Background Decorative Elements - smaller */}
-      <div className="absolute inset-0 w-full h-full">
+      <div className="absolute inset-0 w-full h-full pointer-events-none">
         <div className="absolute top-20 left-10 w-48 h-48 bg-blue-200 dark:bg-blue-900/20 rounded-full mix-blend-multiply dark:mix-blend-soft-light filter blur-3xl opacity-30 animate-blob"></div>
         <div className="absolute bottom-20 right-10 w-48 h-48 bg-gray-300 dark:bg-gray-700/20 rounded-full mix-blend-multiply dark:mix-blend-soft-light filter blur-3xl opacity-30 animate-blob animation-delay-2000"></div>
       </div>
 
       <div className="relative container mx-auto px-3 sm:px-4">
-        {/* Section Header - smaller */}
         <div className="text-center max-w-xl mx-auto mb-8">
           <Badge
             variant="outline"
@@ -70,14 +65,19 @@ export default function Services() {
           </p>
         </div>
 
-        {/* Ultra Compact Services Grid */}
-        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-2">
+        <div className="flex flex-wrap justify-center gap-3 sm:gap-4">
           {services.map((service, index) => (
             <Card
               key={index}
-              className="group bg-white/95 dark:bg-gray-800/95 border border-gray-200 dark:border-gray-700 hover:shadow-md transition-all duration-200 hover:-translate-y-0.5 overflow-hidden relative p-0"
+              className="
+                group bg-white/95 dark:bg-gray-800/95 
+                border border-gray-200 dark:border-gray-700 
+                hover:shadow-md transition-all duration-200 
+                hover:-translate-y-0.5 overflow-hidden relative 
+                w-full max-w-[280px] sm:max-w-[260px] 
+                basis-[calc(50%-0.75rem)] sm:basis-auto
+              "
             >
-              {/* Gradient overlay on hover */}
               <div
                 className={`absolute inset-0 bg-gradient-to-br ${service.gradient} opacity-0 group-hover:opacity-5 transition-opacity duration-200`}
               ></div>
@@ -90,39 +90,36 @@ export default function Services() {
                     {service.icon}
                   </div>
 
-                  {/* Mini badge - only for first */}
                   {index === 0 && (
-                    <span className="text-[8px] font-medium bg-gradient-to-r from-blue-600 to-gray-800 text-white px-1 py-0.5 rounded">
+                    <span className="text-[12px] font-medium bg-gradient-to-r from-blue-600 to-gray-800 text-white px-1 py-0.5 rounded">
                       top
                     </span>
                   )}
                 </div>
-                <CardTitle className="text-xs font-semibold text-gray-800 dark:text-gray-200 mt-1.5">
+                <CardTitle className="text-xl font-semibold text-gray-800 dark:text-gray-200 mt-1.5">
                   {service.title}
                 </CardTitle>
-                <p className="text-[9px] text-gray-500 dark:text-gray-400 line-clamp-1 leading-tight">
+                <p className="text-[12px] text-gray-500 dark:text-gray-400 line-clamp-1 leading-tight">
                   {service.description}
                 </p>
               </CardHeader>
 
               <CardContent className="p-2 pt-1">
-                {/* Mini features list */}
                 <div className="space-y-0.5 mb-1.5">
                   {service.features.map((feature, idx) => (
                     <div key={idx} className="flex items-center gap-1">
                       <div className="w-0.5 h-0.5 bg-blue-600 dark:bg-blue-400 rounded-full"></div>
-                      <span className="text-[8px] text-gray-600 dark:text-gray-400">
+                      <span className="text-[10px] text-gray-600 dark:text-gray-400">
                         {feature}
                       </span>
                     </div>
                   ))}
                 </div>
 
-                {/* Micro button */}
                 <Button
                   variant="ghost"
                   size="sm"
-                  className="w-full h-5 text-[8px] px-1 text-blue-600 dark:text-blue-400 hover:text-blue-700 dark:hover:text-blue-300 hover:bg-blue-50 dark:hover:bg-blue-900/20"
+                  className="w-full h-5 text-[10px] px-1 text-blue-600 dark:text-blue-400 hover:text-blue-700 dark:hover:text-blue-300 hover:bg-blue-50 dark:hover:bg-blue-900/20"
                 >
                   more
                   <ArrowRight className="ml-0.5 h-2 w-2" />

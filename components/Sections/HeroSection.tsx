@@ -1,7 +1,9 @@
+'use client'
+
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import Image from "next/image";
-import HeroImage from "@/public/images/image.png";
+import HeroImage from "@/public/certificate/profile2.png";
 import {
   ArrowRight,
   Download,
@@ -23,6 +25,30 @@ export default function Hero() {
     "Shadcn",
     "UI/UX",
   ];
+
+  // Function to handle resume download
+  const handleDownloadResume = () => {
+    // Create a link element
+    const link = document.createElement("a");
+    link.href = "/resume/elleni_resume.pdf";
+    link.download = "Elleni_Bisrat_Resume.pdf"; // The filename for download
+    link.target = "_blank";
+    link.rel = "noopener noreferrer";
+
+    // Append to body, click, and remove
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+  };
+
+  // Function to handle "View My Work" button
+  const handleViewWork = () => {
+    // Scroll to projects section
+    const projectsSection = document.getElementById("projects");
+    if (projectsSection) {
+      projectsSection.scrollIntoView({ behavior: "smooth" });
+    }
+  };
 
   return (
     <section
@@ -61,20 +87,18 @@ export default function Hero() {
 
             {/* Dynamic Role */}
             <div className="mb-4 sm:mb-6">
-              <h2 className="text-lg sm:text-xl md:text-2xl text-gray-700 dark:text-gray-300">
+              <h2 className="text-md sm:text-xl md:text-2xl text-gray-700 dark:text-gray-300">
                 Full Stack Developer & UI/UX Designer
               </h2>
             </div>
 
-            {/* Description */}
-            <p className="text-sm sm:text-base md:text-lg text-gray-600 dark:text-gray-400 mb-6 sm:mb-8 max-w-2xl mx-auto lg:mx-0 leading-relaxed">
+            <p className="sm:text-base md:text-lg lg:text-[12px]  text-gray-600 dark:text-gray-400 mb-6 sm:mb-8 max-w-2xl mx-auto lg:mx-0 leading-relaxed">
               Crafting beautiful digital experiences with modern web
               technologies. Specialized in building scalable applications that
               solve real-world problems with elegant design and robust
               architecture.
             </p>
 
-            {/* Tech Stack Badges */}
             <div className="mb-6 sm:mb-8">
               <h3 className="text-sm font-semibold text-gray-700 dark:text-gray-300 mb-3 sm:mb-4">
                 Tech Stack & Expertise
@@ -97,6 +121,7 @@ export default function Hero() {
               <Button
                 size="lg"
                 className="bg-gradient-to-r from-blue-600 to-gray-800 hover:from-blue-700 hover:to-gray-900 text-white px-6 sm:px-8 py-4 sm:py-6 text-sm sm:text-base shadow-lg hover:shadow-xl transition-all duration-300 group"
+                onClick={handleViewWork}
               >
                 View My Work
                 <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
@@ -105,7 +130,8 @@ export default function Hero() {
               <Button
                 size="lg"
                 variant="outline"
-                className="border-2 border-blue-600 dark:border-blue-500 text-blue-600 dark:text-blue-400 hover:bg-blue-50 dark:hover:bg-blue-900/20 px-6 sm:px-8 py-4 sm:py-6 text-sm sm:text-base"
+                className="border-2 border-blue-600 dark:border-blue-500 text-blue-600 dark:text-blue-400 hover:bg-blue-50 dark:hover:bg-blue-900/20 px-6 sm:px-8 py-4 sm:py-6 text-sm sm:text-base cursor-pointer"
+                onClick={handleDownloadResume}
               >
                 <Download className="mr-2 h-4 w-4" />
                 Download Resume
@@ -157,7 +183,7 @@ export default function Hero() {
                     asChild
                   >
                     <a
-                      href="https://github.com"
+                      href="https://github.com/Elleni-Bisrat"
                       target="_blank"
                       rel="noopener noreferrer"
                       aria-label="GitHub"
@@ -177,7 +203,7 @@ export default function Hero() {
                     asChild
                   >
                     <a
-                      href="https://linkedin.com"
+                      href="https://linkedin.com/in/elleni-bisrat"
                       target="_blank"
                       rel="noopener noreferrer"
                       aria-label="LinkedIn"
