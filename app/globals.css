@@ -125,7 +125,6 @@
   }
 }
 
-
 /* Add to your global.css or styles/globals.css */
 
 @keyframes blob {
@@ -185,4 +184,8 @@
 
 .animate-scroll {
   animation: scroll 2s infinite;
+}
+
+html {
+  scroll-behavior: smooth;
 }
