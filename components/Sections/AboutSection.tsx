@@ -56,7 +56,7 @@ export default function AboutMe() {
     {
       icon: <GraduationCap className="w-3 h-3" />,
       label: "Education",
-      value: "ASTU",
+      value: "AASTU",
     },
     {
       icon: <Code2 className="w-3 h-3" />,
